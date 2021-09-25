@@ -11,3 +11,5 @@ a= 10
 b= 20
 
 print("Welcom")
+
+d=a+b

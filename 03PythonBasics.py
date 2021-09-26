@@ -97,8 +97,7 @@ print(name)
 h = 'hello'    # String literals can use single quotes
 w = "world"    # or double quotes; it does not matter.
 
-print(h)       # Prints "hello"
-
+print(h)       # Prints "hell
 print(len(h))  # String length; prints "5"
 
 hw = h + ' ' + w  # String concatenation

@@ -293,6 +293,141 @@ data.append(l1)
 
 
 
+# Lambda
+
+def f(x):
+    return(x**2)
+
+
+f(2)
+
+f(9)
+
+
+fl = lambda x : x**2
+
+fl(10)
+
+
+fl1 = lambda x,y: (x+y, x-y)
+
+fl1(10,20)
+
+l1 = [5, 7, 22, 97, 54, 62, 77, 23, 73, 61] 
+
+lm1 = lambda x: x*2
+l2=[]
+for i in l1:
+    l2.append(lm1(i))
+l2
+
+
+#map, filter, reduce
+l1 = [5, 7, 22, 97, 54, 62, 77, 23, 73, 61] 
+final_list = list(map(lambda x: x*2 , l1)) 
+print(final_list)
+
+
+l1 = list(range(1, 10))
+l1
+fl = list( map(lambda x: x+2, l1))
+
+fl
+
+
+l1 = [5, '', 22, 97, '' , 62, 77, '', 73, 61] 
+final_list = list(filter(lambda x: (x != '') , l1)) 
+print(final_list) 
+
+
+l1 = [5, 7, 22, 97, 54, 62, 77, 23, 73, 61] 
+
+final_list = list(filter(lambda x: (x > 50) , l1)) 
+print(final_list) 
+
+
+x =9
+x/2
+
+x % 2
+
+
+
+l1 = [5, 7, 22, 97, 54, 62, 77, 23, 73, 61] 
+final_list = list(filter(lambda x: (x%2 == 0) , l1)) 
+print(final_list) 
+
+
+
+from functools import reduce
+
+li = [5, 8, 10, 20, 50, 100] 
+
+s1 = reduce(lambda x, y: x * y, li) 
+
+print (s1) 
+
+
+import random as rd
+
+x = rd.randint(1, 100)
+x
+
+l1 = [111,222,333,444,555,666]
+
+rd.choice(l1)
+
+rd.choices(l1, k=3)
+
+
+gender = ['M', 'F']
+
+lst = rd.choices(gender, k=100)
+
+len(lst)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

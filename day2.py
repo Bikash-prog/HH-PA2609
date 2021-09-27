@@ -136,6 +136,14 @@ for i in team:
     
 
 
+#Continue
+
+for i in team:
+    if i == 'Nepal':
+        print (i, " In Condition ")
+        continue
+    print (i, " Outer Condition")
+    
 
 
 
@@ -154,13 +162,134 @@ while (True):
 
 
 
+data=[]
+cnt=0
+while (True):
+    l3=[]
+    while(cnt<3):
+        det= input("Enter detail {0}- >".format(l2[cnt]))
+        if (det==''):
+            continue
+        cnt = cnt +1
+        l3.append(det)
+    data.append(l3)
+    choice  = int(input("Enter 1 for more details or enter 0 -> "))
+    if choice == 0:
+        break
+
+
+#Functions
+
+a = 10
+b =20
+
+def oper():
+    print( a+b)
+    print (a-b)
+    print (a*b)
+
+oper()
+
+oper()
+
+oper()
+
+
+
+def printHello():
+    print ("Hello")
+
+printHello()
+
+printHello()
+
+printHello()
+
+
+
+def printHello(name):
+    print ("Hello " + name)
+
+printHello("Vikas")
+
+printHello("AK")
+
+printHello("VK")
+
+
+
+def printHello(fname, lname):
+    print ("Hello " + fname +" "+ lname)
+
+printHello("Vikas", "Khullar")
+
+printHello("AK", "Kumar")
+
+printHello("VK", "Gupta")
+
+
+def dat(name, rno, branch= 'None'):
+    print (name, rno, branch)
+
+
+a = dat("vk", 22, 'CSE')
+a
+
+dat("vk", 22)
+
+
+def dat1(name, rno = 'None', branch= 'None'):
+    print (name, rno, branch)
+    return(name, rno, branch)
+
+a = dat1("VK", 111, 'CSE')
+a
+
+
+def maximum(l1):
+    m=0
+    for i in l1:
+        if (m<i):
+            m=i
+    return (m)
+
+
+lst = [6,5,3,8,1]
+maximum(lst)
+
+lst.sort()
+lst
+
+
+
+data=[]
+def dat1():
+    l1=[]
+    l1.append(input('Enter Name -> '))
+    l1.append(input('Enter Rno -> '))
+    l1.append(input('Enter Branch -> '))
+    return(l1)
+
+
+
+for i in range(0,5):
+    l1 = dat1()
+    data.append(l1)
 
 
 
 
+l1 = dat1()
+data.append(l1)
+
+data
 
 
+l1 = dat1()
+data.append(l1)
 
+l1 = dat1()
+data.append(l1)
 
 
 

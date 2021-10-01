@@ -262,8 +262,6 @@ marks2 = np.random.randint(0,100,size=1000)
 
 fees = np.random.randint(50000,100000,size=1000)
 
-fees.mean()
-
 course = np.random.choice(a=['BBA','MBA','BTECH', 'MTech'], size=1000, p=[0.4, 0.5,0.09,0.01])
 
 course
@@ -277,6 +275,81 @@ collections.Counter(city)
 course = np.random.choice(a=['BBA','MBA','BTECH', 'MTech'], size=1000, p=[0.4, 0.5,0.09,0.01])
 pd8 = pd.DataFrame({'rollno':rollno, 'name':name, 'course':course, 'gender':gender, 'marks1':marks1,'marks2':marks2, 'fees':fees,'city':city})
 pd8
+
+
+pd8.head(1)
+pd8.columns
+pd8.describe()
+
+pd8.shape
+
+pd8['gender'].value_counts()
+
+pd8['course'].value_counts()
+
+
+pd9 = pd8.groupby('course')
+pd9
+
+pd9 = pd8.groupby('course').size()
+pd9
+
+
+pd10 = pd8.groupby('course').count()
+pd10
+
+categ = ['course', 'gender','city']
+
+pd11 = pd8[categ]
+
+pd11.head(2)
+
+pd11.groupby(['city', 'gender', 'course']).size()
+
+pd11.groupby(['course','city', 'gender']).size()
+
+pd12 = pd11.groupby(['course']).size()
+pd12
+pd12 = pd11.groupby(['course']).get_group('MTech')
+pd12
+
+pd8.groupby(['city', 'gender', 'course']).sum()
+
+pd8.groupby(['course','city']).agg({"fees": "sum"})
+
+df1 = pd8.groupby(['course','city']).agg({"fees": ["sum","mean",'std'],
+                                    "marks1": ["sum","mean",'std']})
+
+df1.to_csv("data.csv")
+
+pd8.groupby('course', as_index=False).agg({"marks1": "sum"})
+
+df1 = pd8.groupby(['course','city'], as_index=True).agg({"fees": ["sum"],
+                                    "marks1": ["sum"]})
+
+df1.to_csv("data2.csv")
+
+
+
+pd8.to_excel("pd8.xlsx")
+
+pd8.to_excel("pd81.xlsx",sheet_name='pd8', index=False)
+
+
+#write to more than one sheet in the workbook, it is necessary to specify an ExcelWriter object:
+with pd.ExcelWriter(r'D:\ML-Lab\pd8b.xlsx') as writer:
+    pd8.to_excel(writer, sheet_name='first', index=False)
+    pd8.to_excel(writer, sheet_name='second')
+    
+    
+
+f1 = open("aa.txt", 'w')
+f1 = open("aa.txt", 'r')
+
+    
+pd8.to_excel('pd8b.xlsx', engine='xlsxwriter')
+
+
 
 
 

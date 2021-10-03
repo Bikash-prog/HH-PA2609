@@ -8,7 +8,6 @@
 
 import numpy as np
 import pandas as pd
-
 import matplotlib.pyplot as plt
 
 plt.bar(['M','F'], [30,10])
@@ -25,7 +24,7 @@ plt.show()  #used if running as file
 
 
 #now create a dataframe object
-df = pd.DataFrame({'gender':['M','F'], 'strength':[25,10]})
+df = pd.DataFrame({'gender':['MALE','F'], 'strength':[25,10]})
 df
 
 df.plot(kind='bar')  #legend, labels ?
@@ -34,7 +33,8 @@ plt.bar(df['gender'], df['strength'])
 
 #save in object
 df.columns
-ax = df.plot(kind='bar', grid=True, legend=True, title=' Title of Graph', figsize=[10,5], color= ['red','blue'])
+
+ax = df.plot(kind='bar', grid=True, legend=True, title=' Title of Graph', figsize=[8,3], color= ['red','blue'])
 ax.set_xlabel('Gender')
 ax.set_ylabel('Count')
 ax.set_facecolor('blue')
@@ -45,17 +45,31 @@ plt.bar(df.gender, df.strength) #use column anmes
 plt.bar(df.gender, df.strength, color = ['red','g'])  #list color
 plt.bar(df.gender, df.strength, color = ('red','g'))  #tuple color
 
-ls = np.linspace(0,100, 11)
+ls = np.linspace(0,100, 5 )
 ls
+
 #complete plot
 plt.bar(df.gender, df.strength, color = ['red','g'], width=0.2)
 plt.title('Str of Students',fontsize=40)
 plt.grid(True)
 plt.xlabel('Gender')
 plt.ylabel('Count')
-
 plt.xticks(df.gender,rotation=90,fontsize=20)
-plt.yticks(ls,rotation=60,fontsize=20)
+plt.yticks(rotation=90,fontsize=20)
+
+
+
+ls = np.linspace(0,100, 6)
+ls
+#complete plot
+plt.bar(['s1', 's2'], [80, 50], color = ['red','g'], width=0.2)
+plt.title('Str of Students',fontsize=20)
+plt.grid(True)
+plt.xlabel('student name')
+plt.ylabel('percentage')
+plt.xticks(rotation=90,fontsize=10)
+plt.yticks(ls, rotation=90,fontsize=10)
+
 
 ls = np.linspace(0,100, 11)
 ls
@@ -69,11 +83,8 @@ y = [2,4,1,5,2,6]
 
 plt.plot(x,y)
 # plotting the points  
-plt.plot(x, y, color='green', linestyle='dashed', linewidth = 2,   marker='*', markerfacecolor='red', markersize=22) 
-
-
-
-plt.plot(x, y, color='red',  linewidth = 7,   marker='o', markerfacecolor='red', markersize=12) 
+plt.plot(x, y, color='green', linestyle='dashed', linewidth = 3,   marker='*', markerfacecolor='red', markersize=30) 
+plt.plot(y, x, color='red',  linewidth = 7,   marker='o', markerfacecolor='red', markersize=12) 
 plt.xticks(list(range(0,11)))
 # setting x and y axis range 
 plt.ylim(1,8) 

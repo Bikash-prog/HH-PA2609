@@ -8,8 +8,10 @@ import matplotlib.pyplot as plt
 #data for 4 columns
 data=[{2,3,4,1},{6,3,5,2},{6,3,5,4},{3,7,5,4},{2,8,1,5}]
 
+data
 Index= ['I1', 'I2','I3','I4','I5']  #Index values
 Cols = ['C1', 'C2', 'C3','C4']  #columns
+
 df = DataFrame(data, index=Index, columns=Cols)
 df
 
@@ -49,6 +51,9 @@ heatmap = axis.pcolor(uniform_data, cmap=plt.cm.Blues) # heatmap contient les va
 plt.colorbar(heatmap)
 
 
+
+
+
 #Histogram - Matplotlib
 ##-----------------------------
 #%
@@ -57,15 +62,30 @@ plt.colorbar(heatmap)
 from pydataset import data
 
 mtcars = data('mtcars')
-
 mtcars.head(5)
 mtcars
 mtcars.dtypes
 
+
+
 #which are continuous variables
 mtcars[['mpg','wt','hp','disp']]. head()
 
-mtcars['mpg']
+dat = mtcars['mpg']
+np.mean(dat)
+np.median(dat)
+np.std(dat)
+len(dat)
+
+test = np.random.normal(19.2, 5.932, 100 )
+
+plt.hist(dat, bin=5)
+plt.hist(test, bins=10)
+
+np.mean(test)
+np.median(test)
+
+
 
 import matplotlib.pyplot as plt
 import numpy as np

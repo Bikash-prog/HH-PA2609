@@ -90,11 +90,13 @@ np.median(test)
 import matplotlib.pyplot as plt
 import numpy as np
 
+from pydataset import data
+mtcars = data('mtcars')
 plt.hist(mtcars.mpg)
 plt.hist(mtcars['mpg'])
 
 #other options
-plt.hist(mtcars['mpg'], alpha=0.4)
+plt.hist(mtcars['mpg'], alpha=1)
 
 plt.hist(mtcars.wt)
 
@@ -107,7 +109,7 @@ ls=np.linspace(mtcars.wt.min(),mtcars.wt.max(), num=5)
 ls
 np.histogram(mtcars.wt, bins=ls)
 
-plt.hist(mtcars.wt)
+plt.hist(mtcars.wt, bins=ls)
 
 
 import seaborn as sns
@@ -118,3 +120,5 @@ data_2
 
 sns.distplot(data_2, kde=True)
 
+data3 = np.random.randint(70, 110, 200)
+sns.distplot(data3, kde=True)

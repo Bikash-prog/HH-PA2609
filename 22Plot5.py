@@ -11,7 +11,6 @@ x= [1,3,4,6,9,10,12,5,2,3]
 y= [3,9,6,5,8,8,2,3,1,8]
 
 
-
 plt.scatter(x,y, color ='r', marker='*')
 plt.scatter(y,x, color ='b', marker='o')
 
@@ -75,9 +74,7 @@ y = [3,4,8,6]
 size = (30 * np.random.rand(4))**2
 size
 
-
 plt.scatter(x,y, s=size)
-
 matplotlib.pyplot.show()
 
 
@@ -103,11 +100,8 @@ plt.rcParams['font.size']=8
 sizes=[120,30,10]
 
 labels = ['BBA', 'MBA','PHD']
-
 fig1, ax1 = plt.subplots()
-
-ax1.pie(sizes, labels=labels, autopct='%1.4f%%', shadow=False)
-
+ax1.pie(sizes, labels=labels, autopct='%1.2f%%', shadow=True)
 plt.show()
 
 
@@ -134,13 +128,13 @@ plt
 import matplotlib.pyplot as plt
 labels = ['Male',  'Female']
 percentages = [60, 40]
-explode=(0.05,0)
+explode=(0.15,0)
 #
 
 color_palette_list = ['#f600cc', '#ADD8E6', '#63D1F4', '#0EBFE9', '#C1F0F6', '#0099CC']
 
 fig, ax = plt.subplots()
-ax.pie(percentages, explode=explode, labels=labels, colors= color_palette_list, autopct='%1.1f%%',  shadow=True, startangle=0,  pctdistance=1.2, labeldistance=1.2)
+ax.pie(percentages, explode=explode, labels=labels, colors= color_palette_list, autopct='%1.1f%%',  shadow=True, startangle=90,  pctdistance=1.2, labeldistance=1.4)
 ax.axis('equal')
 ax.set_title("Distribution of Gender in Class", y=1)
 ax.legend(frameon=False, bbox_to_anchor=(0.2,0.8))

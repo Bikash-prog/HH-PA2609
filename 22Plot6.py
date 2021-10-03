@@ -151,25 +151,26 @@ red_wine = pd.read_csv('winequality-red.csv', sep=',')
 
 white_wine.columns
 # store wine type as an attribute
+
 red_wine['wine_type'] = 'red'   
 white_wine['wine_type'] = 'white'
 
 white_wine.head()
 
+
 # bucket wine quality scores into qualitative quality labels
 red_wine['quality_label'] = red_wine['quality'].apply(lambda value: 
                                         'low' if value <= 5 else 'medium' 
                                         if value <= 7 else 'high')
+
 red_wine.head(5)
     
 red_wine['quality_label'] = pd.Categorical(red_wine['quality_label'], 
                                            categories=['low', 'medium', 'high'])
+
+
 red_wine.columns
 
-
-red_wine['alcohal_level'] = pd.Categorical(red_wine['alcohol'], 
-                                           categories=['low', 'medium', 'high'])
-red_wine.to_csv('update_wine.csv')
 
 white_wine['quality_label'] = white_wine['quality'].apply(lambda value: 'low' 
                                                               if value <= 5 else 'medium' 
@@ -182,6 +183,8 @@ white_wine['quality_label'] = pd.Categorical(white_wine['quality_label'],
 wines = pd.concat([red_wine, white_wine])
 
 wines
+
+
 
 # re-shuffle records just to randomize data points
 wines = wines.sample(frac=0.1, random_state=42).reset_index(drop=True)
@@ -201,19 +204,20 @@ plt.tight_layout(rect=(0, 0, 1.2, 1.2))
 
 
 # Histogram
-fig = plt.figure(figsize = (6,4))
+fig = plt.figure(figsize = (6,4), dpi=300)
 title = fig.suptitle("Sulphates Content in Wine", fontsize=14)
 fig.subplots_adjust(top=0.85, wspace=0.3)
 
 ax = fig.add_subplot(1,1, 1)
 ax.set_xlabel("Sulphates")
 ax.set_ylabel("Frequency") 
-ax.text(1.2, 800, r'$\lambda$='+str(round(wines['sulphates'].mean(),2)), 
+ax.text(1.2, 10, r'$\lambda$='+str(round(wines['sulphates'].mean(),2)), 
          fontsize=12)
 
 freq, bins, patches = ax.hist(wines['sulphates'], color='steelblue', bins=30,
                                     edgecolor='black', linewidth=1)
                                     
+
 
 freq
 bins
@@ -228,6 +232,7 @@ fig.subplots_adjust(top=0.85, wspace=0.3)
 ax1 = fig.add_subplot(1,1, 1)
 ax1.set_xlabel("Sulphates")
 ax1.set_ylabel("Frequency") 
+
 sns.kdeplot(wines['sulphates'], ax=ax1, shade=True, color='steelblue')
            
 sns.distplot(wines['sulphates'], kde=True)
@@ -287,6 +292,19 @@ fig = pp.fig
 fig.subplots_adjust(top=0.93, wspace=0.3)
 t = fig.suptitle('Wine Attributes Pairwise Plots', fontsize=14)
 
+
+from pydataset import data
+mtcars = data('mtcars')
+
+mtcars.dtypes
+
+pp = sns.pairplot(mtcars, size=1.8, aspect=1.8,
+                  plot_kws=dict(edgecolor="k", linewidth=0.5),
+                  diag_kind="kde", diag_kws=dict(shade=True))
+
+fig = pp.fig 
+fig.subplots_adjust(top=0.93, wspace=0.3)
+t = fig.suptitle('Wine Attributes Pairwise Plots', fontsize=14)
 
 
 
@@ -388,7 +406,6 @@ fig = plt.figure(figsize = (10,4), dpi=600)
 title = fig.suptitle("Sulphates Content in Wine", fontsize=14)
 fig.subplots_adjust(top=0.85, wspace=0.3)
 
-
 ax1 = fig.add_subplot(1,2, 2)
 ax1.set_title("Red Wine")
 ax1.set_xlabel("Sulphates")
@@ -456,12 +473,12 @@ ax.set_ylabel("Wine Alcohol %",size = 12,alpha=0.8)
 # Visualizing 3-D numeric data with Scatter Plots
 # length, breadth and depth
 fig = plt.figure(figsize=(8, 6), dpi=600)
-ax = fig.add_subplot(111, projection='3d')
+ax = fig.add_subplot( projection='3d')
 
 xs = wines['residual sugar']
 ys = wines['fixed acidity']
 zs = wines['alcohol']
-ax.scatter(xs, ys, zs, s=50, alpha=0.6, edgecolors='w')
+ax.scatter(xs, ys, zs, s=zs*6, alpha=0.6, edgecolors='w')
 
 ax.set_xlabel('Residual Sugar')
 ax.set_ylabel('Fixed Acidity')

@@ -38,7 +38,7 @@ plt.show() ;
 from sklearn import linear_model #1st method
 
 from sklearn.linear_model import Ridge
-
+from sklearn.linear_model import LinearRegression
 
 X = df[['Interest_Rate','Unemployment_Rate']] # here we have 2 variables for multiple regression. If you just want to use one variable for simple linear regression, then use X = df['Interest_Rate'] for example. Alternatively, you may add additional variables within the brackets
 Y = df['Stock_Index_Price']
@@ -47,7 +47,8 @@ Y = df['Stock_Index_Price']
 #regr = linear_model.LinearRegression()
 
 regr = Ridge(alpha=1.0)
-    
+#regr = LinearRegression()
+   
     
 regr.fit(X, Y)
 
@@ -61,7 +62,6 @@ from sklearn.metrics import  r2_score
 
 
 regr.score(X,Y)
-r2_score(Y, y_pred)
 
 
 New_Interest_Rate = 4.75
@@ -83,11 +83,15 @@ model2.summary()
 
 
 
+import numpy as np
+from sklearn.linear_model import SGDRegressor
 
+X
+Y
 
-
-
-
+reg= SGDRegressor()
+reg.fit(X,Y)
+reg.score(X,Y)
 
 
 

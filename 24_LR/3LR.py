@@ -11,7 +11,7 @@ import pandas as pd
 import seaborn as sns
 # Load the diabetes dataset
 
-url = "https://raw.githubusercontent.com/DUanalytics/datasets/master/csv/slr1.csv"
+url = "https://raw.githubusercontent.com/vikaskhullar/Dataset/master/Housing.csv"
 data = pd.read_csv(url)
 #data = pd.read_csv('data/slr1.csv')
 data.columns

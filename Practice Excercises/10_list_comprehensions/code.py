@@ -35,3 +35,4 @@ friends_lower = [name.lower() for name in friends]
 
 if friend.lower() in friends_lower:
     print(f"I know {friend}!")
+#-----------------END-----------------#
